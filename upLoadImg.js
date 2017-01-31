@@ -10,8 +10,8 @@ function upLoadImg( $parent, imgMaxLength  ){
     this.imgUploadInfoArr = [];// 已上传的图片信息（name、url等）
 
     // 添加图片按钮 的jq对象
-    //this.$upLoadBtn = $('<div class="uploadDiv"><input class="uploadBtn" type="file"><img class="uploadBtn" src="addPictureBtn.png"></div>'); // demo.html中 使用这个路径
-    this.$upLoadBtn = $('<div class="uploadDiv"><input class="uploadBtn" type="file"><img class="uploadBtn" src="../img/addPictureBtn.png"></div>'); // 根据实际项目修改
+    this.$upLoadBtn = $('<div class="uploadDiv"><input class="uploadBtn" type="file"><img class="uploadBtn" src="addPictureBtn.png"></div>'); // demo.html中 使用这个路径
+    //this.$upLoadBtn = $('<div class="uploadDiv"><input class="uploadBtn" type="file"><img class="uploadBtn" src="../img/addPictureBtn.png"></div>'); // 根据实际项目修改
     $parent.append( this.$upLoadBtn );// 添加图片按钮 加入到父容器
 
     this.isHideUploadBtn();// 判断是否隐藏 添加图片按钮（图片到达上限就隐藏）

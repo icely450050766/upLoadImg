@@ -1,5 +1,5 @@
-div.uploadDiv, /* ѡ��ͼƬ div */
-div.imgBox{ /* ͼƬԤ�� box */
+div.uploadDiv, /* 选择图片 div */
+div.imgBox{ /* 图片预览 box */
     width: 130px;
     height: 130px;
     margin-right: 10px;
@@ -9,27 +9,27 @@ div.imgBox{ /* ͼƬԤ�� box */
     position: relative;
 }
 
-div.uploadDiv > .uploadBtn, /* ѡ��ͼƬ input/img */
-div.imgBox > img{ /* ͼƬԤ�� img */
+div.uploadDiv > .uploadBtn, /* 选择图片 input/img */
+div.imgBox > img{ /* 图片预览 img */
     width: 90%;
     height: 90%;
     margin-top: 10%;
 }
 
-/* ѡ��ͼƬ input */
+/* 选择图片 input */
 div.uploadDiv input[type=file].uploadBtn {
     position: absolute;
-    opacity: 0; /*����ʾ*/
+    opacity: 0; /*不显示*/
     cursor: pointer;
 }
 
-/* ͼƬԤ�� �Ƴ�ͼƬ��ť */
+/* 图片预览 移除图片按钮 */
 div.imgBox > .removeImg{
     padding: 0px 5px;
     color: #ffffff;
     background: red;
     border-radius: 100%;
-    -moz-box-shadow: 2px 2px 2px #888888; /* �ϵ� Firefox */
+    -moz-box-shadow: 2px 2px 2px #888888; /* 老的 Firefox */
     box-shadow: 2px 2px 2px #888888;
     cursor: pointer;
 
