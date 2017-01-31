@@ -38,28 +38,13 @@ upLoadImg.prototype.addBtnEvent = function(){
                 //文件读取器读取文件的事件监听
                 reader.onloadend = function () {//文件加载完成
 
-                    var img = new Image();//新建img对象
-                    img.onload = function () {//设置其onload事件
+                    // 在 添加图片按钮 前面添加 图片缩略图
+                    var $imgBox = $('<div class="imgBox" shouldUpload="true">' +
+                        '<img name="' + file.name + '" src="' + reader.result + '">' +
+                        '<div class="removeImg">&times;</div></div>');
+                    _self.$upLoadBtn.before( $imgBox );
 
-                        //将图片数据使用canvas显示，并获取其base64编码，最终在页面中通过img显示
-                        //var w = Math.min(400, img.width);// 当图片宽度超过 400px 时, 就压缩成 400px, 高度按比例计算
-                        var w = img.width;
-                        var h = img.height * (w / img.width);
-                        var canvas = document.createElement('canvas');
-                        canvas.width = w; // 设置 canvas 的宽度和高度
-                        canvas.height = h;
-                        canvas.getContext('2d').drawImage(img, 0, 0, w, h);// 把图片绘制到 canvas 中
-                        var dataURL = canvas.toDataURL('image/png');//借助canvas临时保存文件，用于在页面中使用img显示
-
-
-                        // 在 添加图片按钮 前面添加 图片缩略图
-                        var $imgBox = $('<div class="imgBox" shouldUpload="true"><img name="' + file.name + '" src="' + dataURL + '"><div class="removeImg">&times;</div></div>');
-                        _self.$upLoadBtn.before( $imgBox );
-
-                        _self.isHideUploadBtn();// 图片是否已达上限，是则隐藏 上传图片按钮
-
-                    };
-                    img.src = reader.result;//加载img对象
+                    _self.isHideUploadBtn();// 图片是否已达上限，是则隐藏 上传图片按钮
                 };
                 reader.onerror = function () { console.error('reader error'); };
                 reader.readAsDataURL(file);//实际操作，文件读取器，以URL的方式读取图片文件，使用base-64进行编码
