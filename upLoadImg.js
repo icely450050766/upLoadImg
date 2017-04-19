@@ -100,8 +100,8 @@ upLoadImg.prototype.upLoadOne = function( file ){
         type: 'POST',
         url:  'http://119.29.169.29/devzhaoshifu/api.php/Upload/qiniuUpload',
         data: fd,
-        processData: false,
-        contentType: false,
+        processData: false,// 告诉jQuery不要去处理发送的数据
+        contentType: false, // 告诉jQuery不要去设置Content-Type请求头
         success: function (res) {//上传成功
             //console.log( res.err_msg[0] );
             _self.imgUploadInfoArr.push( res.err_msg[0] );// 保存在 已上传的图片信息 数组中
